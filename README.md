@@ -75,6 +75,9 @@ automatically every time you spawn.
 
 ## Building
 
+This section is only for those who want to modify the source or build it
+yourself.
+
 Requires the [.NET 8 SDK](https://dotnet.microsoft.com/download/dotnet/8.0) and a
 [RedLoader](https://github.com/ToniMacaroni/RedLoader/releases/latest) install
 that has been launched at least once, so the interop assemblies exist. The build
