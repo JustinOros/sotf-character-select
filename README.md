@@ -1,4 +1,3 @@
-# Character Select
 
 Choose your player appearance in Sons of the Forest and keep it across sessions.
 
@@ -81,4 +80,5 @@ To produce a release zip:
 
 Built against RedLoader by Toni Macaroni. The player race system was found by
 reading the source of ArmorMod by clairenheit.
+
 
