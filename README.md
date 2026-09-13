@@ -59,8 +59,8 @@ Sons Of The Forest/
 Once you are in the world, press F9 to cycle through the eight appearances. The
 current one is shown on screen as you cycle.
 
-Your choice is saved to `_RedLoader/UserData/CharacterSelect.txt` and applied
-automatically every time you spawn.
+Your choice is saved to `UserData/CharacterSelect.txt` in your Sons of the Forest
+folder and applied automatically every time you spawn.
 
 | Value | Name |
 | --- | --- |
