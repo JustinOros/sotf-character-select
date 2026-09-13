@@ -1,4 +1,3 @@
-
 Choose your player appearance in Sons of the Forest and keep it across sessions.
 
 Sons of the Forest gives you a random appearance out of eight every time you join
@@ -80,6 +79,7 @@ To produce a release zip:
 
 Built against RedLoader by Toni Macaroni. The player race system was found by
 reading the source of ArmorMod by clairenheit.
+
 
 
 
