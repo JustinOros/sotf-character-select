@@ -54,13 +54,18 @@ Sons Of The Forest/
       manifest.json
 ```
 
+## Updating
+
+Run the installer again. It replaces the old version and keeps your saved
+appearance.
+
 ## Usage
 
 Once you are in the world, press F9 to cycle through the eight appearances. The
 current one is shown on screen as you cycle.
 
-If your keyboard has no F keys, or you would rather pick one directly, open the
-in game console and use the `character` command:
+If your keyboard has no F keys, or you would rather pick one directly, press F1
+to open the console and use the `character` command:
 
 | Command | What it does |
 | --- | --- |
