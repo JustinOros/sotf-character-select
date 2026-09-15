@@ -1,9 +1,11 @@
 ﻿using System;
 using System.IO;
+using System.Text;
 using RedLoader;
 using RedLoader.Utils;
 using Sons.Wearable.Race;
 using SonsSdk;
+using SonsSdk.Attributes;
 using TheForest.Utils;
 using UnityEngine;
 
@@ -27,7 +29,7 @@ public class CharacterSelect : SonsMod
         _configPath = Path.Combine(LoaderEnvironment.UserDataDirectory, "CharacterSelect.txt");
         Load();
         SdkEvents.OnAfterSpawn.Subscribe(OnSpawned);
-        RLog.Msg($"CharacterSelect loaded. Saved race: {_index} ({(PlayerRace.Race)_index}). F9 cycles.");
+        RLog.Msg($"CharacterSelect loaded. Saved character: {_index} ({(PlayerRace.Race)_index}). Press F9 or type: character");
     }
 
     private void OnSpawned()
@@ -37,32 +39,78 @@ public class CharacterSelect : SonsMod
 
     private void OnUpdate()
     {
-        var system = LocalPlayer.RaceSystem;
-        if (!system)
+        if (!LocalPlayer.RaceSystem)
             return;
 
         if (!_applied)
         {
             _applied = true;
-            Apply(system, false);
+            ApplyIndex(false);
             return;
         }
 
         if (Input.GetKeyDown(KeyCode.F9))
         {
             _index = (_index + 1) % RaceCount;
-            Apply(system, true);
+            ApplyIndex(true);
             Save();
         }
     }
 
-    private void Apply(PlayerRaceSystem system, bool announce)
+    [DebugCommand("character")]
+    private static void CharacterCommand(string args)
     {
+        args = (args ?? string.Empty).Trim();
+
+        if (args.Length == 0)
+        {
+            ShowList();
+            return;
+        }
+
+        if (args.Equals("next", StringComparison.OrdinalIgnoreCase))
+        {
+            _index = (_index + 1) % RaceCount;
+            ApplyIndex(true);
+            Save();
+            return;
+        }
+
+        if (int.TryParse(args, out var value) && value >= 0 && value < RaceCount)
+        {
+            _index = value;
+            ApplyIndex(true);
+            Save();
+            return;
+        }
+
+        SonsTools.ShowMessage("Usage: character [0-7] or character next", 5f);
+        RLog.Msg("Usage: character [0-7] or character next");
+    }
+
+    private static void ShowList()
+    {
+        var sb = new StringBuilder();
+        sb.AppendLine($"Current: {_index} ({(PlayerRace.Race)_index})");
+        for (int i = 0; i < RaceCount; i++)
+            sb.AppendLine($"{i}: {(PlayerRace.Race)i}");
+
+        var text = sb.ToString().TrimEnd();
+        SonsTools.ShowMessage(text, 8f);
+        RLog.Msg(text);
+    }
+
+    private static void ApplyIndex(bool announce)
+    {
+        var system = LocalPlayer.RaceSystem;
+        if (!system)
+            return;
+
         var race = (PlayerRace.Race)_index;
         system.ApplyRace(race);
         if (announce)
             SonsTools.ShowMessage($"{_index}: {race}");
-        RLog.Msg($"Applied race {_index} ({race})");
+        RLog.Msg($"Applied character {_index} ({race})");
     }
 
     private static void Load()
