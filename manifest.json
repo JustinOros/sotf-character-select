@@ -5,7 +5,7 @@
   "author": "JustinOros",
   "version": "1.0.0",
   "description": "Pick your player appearance and keep it across sessions",
-  "gameVersion": "1.0.0",
+  "gameVersion": "1.1.0",
   "platform": "Client",
   "type": "Mod"
 }
