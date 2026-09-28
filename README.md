@@ -1,5 +1,7 @@
 # Character Select
 
+[![Downloads](https://img.shields.io/github/downloads/JustinOros/sotf-character-select/total?label=downloads)](https://github.com/JustinOros/sotf-character-select/releases) [![Latest](https://img.shields.io/github/v/release/JustinOros/sotf-character-select?label=latest)](https://github.com/JustinOros/sotf-character-select/releases/latest)
+
 Choose your player appearance in Sons of the Forest and keep it across sessions.
 
 Sons of the Forest gives you a random appearance out of eight every time you join
