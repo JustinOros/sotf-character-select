@@ -145,15 +145,17 @@ if ($Install) {
 if ($Package) {
     $stage = Join-Path $PSScriptRoot 'dist'
     $zip = Join-Path $PSScriptRoot 'CharacterSelect.zip'
+    $stageMods = Join-Path $stage 'Mods'
 
     if (Test-Path $stage) { Remove-Item $stage -Recurse -Force }
-    New-Item -ItemType Directory -Force -Path (Join-Path $stage 'CharacterSelect') | Out-Null
-    Copy-Item $dll -Destination $stage -Force
-    Copy-Item (Join-Path $PSScriptRoot 'manifest.json') -Destination (Join-Path $stage 'CharacterSelect') -Force
+    New-Item -ItemType Directory -Force -Path (Join-Path $stageMods 'CharacterSelect') | Out-Null
+    Copy-Item $dll -Destination $stageMods -Force
+    Copy-Item (Join-Path $PSScriptRoot 'manifest.json') -Destination (Join-Path $stageMods 'CharacterSelect') -Force
 
     if (Test-Path $zip) { Remove-Item $zip -Force }
     Compress-Archive -Path (Join-Path $stage '*') -DestinationPath $zip
     Remove-Item $stage -Recurse -Force
 
     Write-Host "Packaged $zip" -ForegroundColor Green
+    Write-Host '  zip root contains Mods\, extract at the game root' -ForegroundColor Green
 }
