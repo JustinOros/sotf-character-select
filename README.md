@@ -42,9 +42,11 @@ you do not need it.
 
 1. Download `CharacterSelect.zip` from the
    [latest release](https://github.com/JustinOros/sotf-character-select/releases/latest)
-2. Open the `Mods` folder inside your Sons of the Forest install, usually
-   `C:\Program Files (x86)\Steam\steamapps\common\Sons Of The Forest\Mods`
-3. Extract the contents of the zip into that `Mods` folder
+2. Open your Sons of the Forest folder, the one containing
+   `SonsOfTheForest.exe`, usually
+   `C:\Program Files (x86)\Steam\steamapps\common\Sons Of The Forest`
+3. Extract the contents of the zip into that folder. The zip already contains a
+   `Mods` folder, so the files land in the right place
 
 When you are done it should look like this:
 
